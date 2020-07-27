@@ -1,4 +1,6 @@
 import * as O from 'fp-ts/lib/Ord';
+import { Either, left, right } from 'fp-ts/lib/Either';
+import { fold } from 'fp-ts/lib/Option';
 import { Group } from 'fp-ts/lib/Group';
 import { Field } from 'fp-ts/lib/Field';
 import { flow } from 'fp-ts/lib/function';
@@ -9,9 +11,14 @@ import { Vec, Vector } from 'Vector';
 type Mat = readonly Vec[];
 type Shape = [number, number];
 
-export const m: (a: Vec[]) => Mat = ROA.fromArray;
-const binOp = (f: (a: number, b: number) => number) => (v1: Vec, v2: Vec) =>
-  ROA.mapWithIndex<number, number>((i, v) => f(v, v2[i]))(v1);
+const shape = (a: Mat): Shape => [a.length, a[0].length];
+const uniformShape = (a: Mat): boolean =>
+  a.every(rowi => a.every(rowj => rowi.length === rowj.length));
+
+export const m = (a: Vec[]): Either<Error, Mat> =>
+  uniformShape(a)
+    ? right(ROA.fromArray(a))
+    : left(new Error('Provided matrix shape not uniform!'));
 
 const maxNorm: (m: Mat) => number = flow(
   ROA.flatten,
