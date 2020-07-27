@@ -1,0 +1,11 @@
+{
+  "name": "Matrix-FP",
+  "version": "1.0.0",
+  "description": "A matrix library with fp-ts",
+  "main": "index.js",
+  "author": "Jacob Alford",
+  "license": "MIT",
+  "dependencies": {
+    "fp-ts": "^2.7.1"
+  }
+}

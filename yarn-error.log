@@ -1,0 +1,43 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add ft-ts
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Jacob Alford\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\GnuPG\bin;C:\Users\Jacob Alford\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files (x86)\Elm\0.19.1\bin;C:\Users\Jacob Alford\AppData\Roaming\local\bin;C:\Users\Jacob Alford\AppData\Local\Microsoft\WindowsApps;C:\Users\Jacob Alford\AppData\Local\atom\bin;C:\Users\Jacob Alford\AppData\Local\GitHubDesktop\bin;C:\Users\Jacob Alford\AppData\Local\Microsoft\WindowsApps;C:\Users\Jacob Alford\AppData\Roaming\npm;C:\Users\Jacob Alford\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Jacob Alford\AppData\Local\Pandoc;C:\Users\Jacob Alford\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Jacob Alford\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.5.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/ft-ts: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
+      at Request.emit (events.js:200:13)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141720:10)
+      at Request.emit (events.js:200:13)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141642:12)
+      at Object.onceWrapper (events.js:288:20)
+      at IncomingMessage.emit (events.js:205:15)
+      at endReadableNT (_stream_readable.js:1154:12)
+      at processTicksAndRejections (internal/process/task_queues.js:74:11)
+
+npm manifest: 
+  {
+    "name": "Matrix-FP",
+    "version": "1.0.0",
+    "description": "A matrix library with fp-ts",
+    "main": "index.js",
+    "author": "Jacob Alford",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
