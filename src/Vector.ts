@@ -7,7 +7,7 @@ import { flip } from 'fp-ts/lib/function';
 import { curry2 } from 'utils/curry';
 import { add, sub, mul, div, mod } from 'utils/binOps';
 
-type Vec = readonly number[];
+export type Vec = readonly number[];
 
 export const v: (a: number[]) => Vec = ROA.fromArray;
 const binOp = (f: (a: number, b: number) => number) => (v1: Vec, v2: Vec) =>
