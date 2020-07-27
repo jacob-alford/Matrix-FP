@@ -22,8 +22,8 @@ const vecLn = (v: Vec): number =>
 
 export const Vector = (n: number): Ord<Vec> & Group<Vec> & Field<Vec> => ({
   /* Eq, Ord */
-  equals: (v1, v2) => v1.length === v2.length && v1.every((v, i) => v === v2[i]),
-  compare: (v1, v2) => ((a, b) => (a < b ? -1 : a > b ? 1 : 0))(vecLn(v1), vecLn(v2)),
+  equals: (x, y) => x.length === y.length && x.every((v, i) => v === y[i]),
+  compare: (x, y) => ((a, b) => (a < b ? -1 : a > b ? 1 : 0))(vecLn(x), vecLn(y)),
 
   /* Magma, Semigroup, Monoid, Group */
   concat: binOp(add),
@@ -36,7 +36,7 @@ export const Vector = (n: number): Ord<Vec> & Group<Vec> & Field<Vec> => ({
   mul: binOp(mul),
   one: ROA.replicate(n, 1),
   sub: binOp(sub),
-  degree: vecLn,
+  degree: x => x.length,
   div: binOp(div),
   mod: binOp(mod)
 });
