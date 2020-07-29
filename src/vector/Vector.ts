@@ -1,15 +1,18 @@
+import { Vec } from 'matrix-fp';
 import { Ord } from 'fp-ts/lib/Ord';
 import { Group } from 'fp-ts/lib/Group';
 import { Field } from 'fp-ts/lib/Field';
 import * as ROA from 'fp-ts/lib/ReadonlyArray';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { flip } from 'fp-ts/lib/function';
-import { curry2 } from 'utils/curry';
-import { add, sub, mul, div, mod } from 'utils/binOps';
+import curry2 from '_utils/curry2';
 
-export type Vec = readonly number[];
+const add = (a: number, b: number) => a + b;
+const mul = (a: number, b: number) => a * b;
+const sub = (a: number, b: number) => a - b;
+const div = (a: number, b: number) => a / b;
+const mod = (a: number, b: number) => a % b;
 
-export const v: (a: number[]) => Vec = ROA.fromArray;
 const binOp = (f: (a: number, b: number) => number) => (v1: Vec, v2: Vec) =>
   ROA.mapWithIndex<number, number>((i, v) => f(v, v2[i]))(v1);
 
@@ -20,7 +23,7 @@ const vecLn = (v: Vec): number =>
     pipe(Math.pow, flip, curry2)(1 / v.length)
   );
 
-export const Vector = (n: number): Ord<Vec> & Group<Vec> & Field<Vec> => ({
+const Vector = (n: number): Ord<Vec> & Group<Vec> & Field<Vec> => ({
   /* Eq, Ord */
   equals: (x, y) => x.length === y.length && x.every((v, i) => v === y[i]),
   compare: (x, y) => ((a, b) => (a < b ? -1 : a > b ? 1 : 0))(vecLn(x), vecLn(y)),
@@ -40,3 +43,5 @@ export const Vector = (n: number): Ord<Vec> & Group<Vec> & Field<Vec> => ({
   div: binOp(div),
   mod: binOp(mod)
 });
+
+export default Vector;
