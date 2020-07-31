@@ -1,6 +1,6 @@
 import { Mat } from 'matrix-fp';
 import { pipe } from 'fp-ts/lib/function';
-import E from 'fp-ts/lib/Either';
+import * as E from 'fp-ts/lib/Either';
 import Matrix from 'matrix/Matrix';
 import sameShape from '_utils/sameShape';
 
