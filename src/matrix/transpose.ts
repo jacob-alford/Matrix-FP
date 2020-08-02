@@ -28,7 +28,7 @@ const transpose = (a: Mat): Mat =>
                * Is because if it reaches the end of a column,
                * a.length will catch the empty array before
                * ROA.map(ROA.tail) will.
-               * (And for some reason it didn't work without line 12)
+               * It's probably because ROA.tail returns [a] as [a] instead of []
                */
               O.fold(() => [], transpose)
             )
