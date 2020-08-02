@@ -22,6 +22,14 @@ const transpose = (a: Mat): Mat =>
               a,
               ROA.map(ROA.tail),
               seq,
+              /* This is causing my coverage to drop below 100%
+               * But I think because of line 12, this will *never* be called,
+               * But is still necessary for proper types.
+               * Is because if it reaches the end of a column,
+               * a.length will catch the empty array before
+               * ROA.map(ROA.tail) will.
+               * (And for some reason it didn't work without line 12)
+               */
               O.fold(() => [], transpose)
             )
           ]
