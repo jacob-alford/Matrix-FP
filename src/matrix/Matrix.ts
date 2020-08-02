@@ -13,7 +13,7 @@ const Matrix = ([rows, columns]: Shape): O.Ord<Mat> & Group<Mat> & Field<Mat> =>
   /* Eq, Ord */
   equals: (a, b) =>
     a.length === b.length && a.every((v, i) => Vector(columns).equals(v, b[i])),
-  compare: (a, b) => ((a, b) => (a < b ? -1 : a > b ? 0 : 1))(maxNorm(a), maxNorm(b)),
+  compare: (a, b) => ((a, b) => (a < b ? -1 : a > b ? 1 : 0))(maxNorm(a), maxNorm(b)),
 
   /* Magma, Semigroup, Monoid, Group */
   concat: lift(Vector(columns).concat),
