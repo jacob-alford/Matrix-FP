@@ -9,6 +9,7 @@
     "fp-ts": "^2.7.1"
   },
   "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register  --respawn --transpile-only ./src/example.ts",
     "test": "jest --watch"
   },
   "devDependencies": {
